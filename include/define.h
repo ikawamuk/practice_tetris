@@ -21,5 +21,6 @@
 # define SPACE_LITERAL "　"
 
 # define MS_PER_TURN 500
+# define LOCK_DELAY_MS 300
 
 #endif

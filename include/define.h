@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 01:46:00 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/09 22:13:04 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/09 22:39:14 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 # define BLOCK_LITERAL "⬜"
 # define SPACE_LITERAL "　"
 
-# define MS_PER_TURN 100
+# define MS_PER_TURN 500
 
 #endif

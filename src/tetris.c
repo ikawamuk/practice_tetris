@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 02:04:38 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/09 23:25:04 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/09 23:43:50 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	tetris(void)
 	t_field	field;
 
 	init_input();
-	memset(field.terrain, 0, sizeof(field.terrain));
+	memset(&field, 0, sizeof(field));
 	printf("\033[2J");
 	while (1)
 	{

@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 03:50:31 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/09 22:36:37 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/09 23:18:13 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	turn(t_field *field)
 	while (1)
 	{
 		draw_screen(field);
-		last_target = field->target;
 		moveable(field);
+		last_target = field->target;
 		field->target.y++;
 		if (is_hit_ground(field) == true)
 		{

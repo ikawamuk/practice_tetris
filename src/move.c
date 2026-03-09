@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 04:14:06 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/09 22:50:02 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/09 23:17:46 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	move(t_field *field, int input)
 	else if (input == 'd')
 		field->target.x++;
 	else if (input == 's')
-		field->target.y < FIELD_HEIGHT ? field->target.y++ : last_target.y;
+		field->target.y++;
 	if (is_hit_wall(field) == true)
 	{
 		field->target = last_target;

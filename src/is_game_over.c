@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   is_game_over.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/08 01:46:00 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/09 18:08:00 by ikawamuk         ###   ########.fr       */
+/*   Created: 2026/03/09 17:40:07 by ikawamuk          #+#    #+#             */
+/*   Updated: 2026/03/09 17:40:36 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#include "field.h"
+#include <stdbool.h>
 
-# define FIELD_WIDTH 10
-# define FIELD_HEIGHT 20
-
-# define WALL_LITERAL "⬛"
-# define BLOCK_LITERAL "⬜"
-# define SPACE_LITERAL "　"
-
-# define TIME_PER_TURN 100000
-
-#endif
+bool	is_game_over(t_field *field)
+{
+	for (int x = 0; x < FIELD_WIDTH; x++)
+	{
+		if (field->terrain[0][x])
+			return (true);
+	}
+	return (false);
+}

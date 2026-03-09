@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 02:04:38 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/09 23:47:13 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/09 23:59:00 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void	init(t_field *field);
 void	phase(t_field *field);
 void	update_terrain(t_field *field);
-void	clear_lines(t_field *field);
+int		clear_lines(t_field *field);
 bool	is_game_over(t_field *field);
 void	init_input(void);
 void	restore_input(void);

@@ -13,9 +13,12 @@
 #include "field.h"
 #include <stdbool.h>
 
-void	clear_lines(t_field *field)
+int	clear_lines(t_field *field)
 {
 	bool	is_full;
+	int		cleared_lines;
+
+	cleared_lines = 0;
 
 	for (int y = FIELD_HEIGHT - 1; y >= 0; y--)
 	{
@@ -35,6 +38,8 @@ void	clear_lines(t_field *field)
 				field->terrain[row][x] = field->terrain[row - 1][x];
 		for (int x = 0; x < FIELD_WIDTH; x++)
 			field->terrain[0][x] = 0;
+		cleared_lines++;
 		y++;
 	}
+	return (cleared_lines);
 }

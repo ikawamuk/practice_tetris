@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   turn.c                                             :+:      :+:    :+:   */
+/*   phase.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 03:50:31 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/09 23:24:39 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/09 23:53:55 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void	phase(t_field *field)
 {
 	while (1)
 	{
-		draw_screen(field);
 		moveable(field);
 		if (is_grounded(field) == true)
 			lock_delay(field);
 		if (is_grounded(field) == true)
 			break ;
 		field->target.y++;
+		draw_screen(field);
 	}
 }

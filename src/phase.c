@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 03:50:31 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/09 23:18:13 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/09 23:24:39 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	lock_delay(t_field *field)
 	}
 }
 
-void	turn(t_field *field)
+void	phase(t_field *field)
 {
 	while (1)
 	{

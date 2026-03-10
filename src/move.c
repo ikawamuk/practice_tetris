@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 04:14:06 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/10 20:17:26 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/10 20:21:20 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	rotate_left(t_field *field)
 {
 	int	new_shape[4][4];
 
+	// TODO かべにりんせつしているときに、壁キックを入れる必要がある！
 	for (int y = 0; y < 4; y++)
 		for (int x = 0; x < 4; x++)
 			new_shape[y][x] = field->target.mino.shape[x][3 - y];

@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 03:50:31 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/10 20:15:46 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/10 20:26:31 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,5 @@ void	phase(t_field *field)
 		field->target.y++;
 		draw_screen(field);
 	}
+	field->used_hold = false;
 }

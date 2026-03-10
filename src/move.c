@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 04:14:06 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/10 20:21:20 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/10 20:53:25 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	move(t_field *field, int input);
 bool	is_hit_wall(t_field *field);
 void	draw_screen(t_field *field);
 ;static void	hard_drop(t_field *field);
+static void		hold(t_field *field);
 
 static void	rotate_left(t_field *field)
 {
@@ -75,13 +76,32 @@ void	move(t_field *field, int input)
 	else if (input == 'q') rotate_left(field);
 	else if (input == 'e') rotate_right(field);
 	else if (input == 'w') hard_drop(field);
-	else if (input == 'f') {} // hold;
+	else if (input == 'f') hold(field);
 	if (is_hit_wall(field) == true)
 	{
 		field->target = last_target;
 		return ;
 	}
 	draw_screen(field);
+}
+
+void	init(t_field *field);
+
+static void	hold(t_field *field)
+{
+	if (field->used_hold == true)
+		return ;
+	if (field->hold.has_hold == false)
+	{
+		field->hold.has_hold = true;
+		field->hold.mino = field->target.mino;
+		field->used_hold = true;
+		init(field);
+		return ;
+	}
+	t_mino	tmp = field->hold.mino;
+	field->hold.mino = field->target.mino;
+	field->target.mino = tmp;
 }
 
 static void	hard_drop(t_field *field)

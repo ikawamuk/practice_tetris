@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 04:14:06 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/10 20:53:25 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/10 21:58:54 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ static void	hold(t_field *field)
 	t_mino	tmp = field->hold.mino;
 	field->hold.mino = field->target.mino;
 	field->target.mino = tmp;
+	field->target.x = (FIELD_WIDTH - 4) / 2;
+	field->target.y = 0;
 }
 
 static void	hard_drop(t_field *field)

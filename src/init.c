@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 02:30:03 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/10 20:40:40 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/10 22:04:03 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ static void	refill_pool(t_mino *pool, int *pool_size)
 t_mino	push_pool(void);
 t_mino	*get_pool(void);
 
-static t_mino	pool[7];
-static int		pool_size = 0;
 
 void	init(t_field *field)
 {
@@ -48,14 +46,57 @@ void	init(t_field *field)
 	draw_screen(field);
 }
 
+typedef struct s_pool
+{
+	t_mino	pool[7];
+	int		pool_size;
+}t_pool;
+
+static t_pool	active_pool = {0};
+static t_pool	backup_pool = {0};
+
+static void	switch_pool(void)
+{
+	t_pool	tmp_pool;
+
+	tmp_pool = active_pool;
+	active_pool = backup_pool;
+	backup_pool = tmp_pool;
+}
+
+static void	ensure_backup_filled(void)
+{
+	if (backup_pool.pool_size == 0)
+		refill_pool(backup_pool.pool, &backup_pool.pool_size);
+}
+
 t_mino	push_pool(void)
 {
-	if (pool_size == 0)
-		refill_pool(pool, &pool_size);
-	return (pool[--pool_size]);
+	if (active_pool.pool_size == 0)
+	{
+		ensure_backup_filled();
+		switch_pool();
+	}
+	return (active_pool.pool[--active_pool.pool_size]);
+}
+
+void	get_nexts(t_mino nexts[3])
+{
+	int	idx;
+	int	i;
+
+	idx = 0;
+	for (i = active_pool.pool_size - 1; i >= 0 && idx < 3; i--)
+		nexts[idx++] = active_pool.pool[i];
+	if (idx < 3)
+	{
+		ensure_backup_filled();
+		for (i = backup_pool.pool_size - 1; i >= 0 && idx < 3; i--)
+			nexts[idx++] = backup_pool.pool[i];
+	}
 }
 
 t_mino	*get_pool(void)
 {
-	return (pool);
+	return (active_pool.pool);
 }

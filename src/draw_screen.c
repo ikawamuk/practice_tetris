@@ -62,7 +62,7 @@ void	print_hold(t_field *field)
 	printf("\n");
 }
 
-t_mino	*get_pool(void);
+void	get_nexts(t_mino nexts[3]);
 /*
 enum e_mino
 {
@@ -77,7 +77,11 @@ enum e_mino
 */
 void	print_next(void)
 {
-	// t_mino	*nexts = get_pool();
-	
-	// printf("NEXT: %c %c %c\n", mino_char_table[nexts[0].id], mino_char_table[nexts[1].id], mino_char_table[nexts[2].id]);
+	t_mino	nexts[3];
+
+	get_nexts(nexts);
+	printf("NEXT: %c %c %c\n",
+		mino_char_table[nexts[0].id],
+		mino_char_table[nexts[1].id],
+		mino_char_table[nexts[2].id]);
 }

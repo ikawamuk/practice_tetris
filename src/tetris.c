@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 02:04:38 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/09 23:59:00 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/10 21:59:53 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
+#include <time.h>
 
 void	init(t_field *field);
 void	phase(t_field *field);
@@ -27,6 +29,7 @@ int	tetris(void)
 {
 	t_field	field;
 
+	srand(time(NULL));
 	init_input();
 	memset(&field, 0, sizeof(field));
 	printf("\033[2J");

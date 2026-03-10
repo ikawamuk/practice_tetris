@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 04:14:06 by ikawamuk          #+#    #+#             */
-/*   Updated: 2026/03/09 23:33:32 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2026/03/10 20:17:26 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		get_ch(void);
 void	move(t_field *field, int input);
 bool	is_hit_wall(t_field *field);
 void	draw_screen(t_field *field);
+;static void	hard_drop(t_field *field);
 
 static void	rotate_left(t_field *field)
 {
@@ -72,8 +73,8 @@ void	move(t_field *field, int input)
 	else if (input == 's') field->target.y++;
 	else if (input == 'q') rotate_left(field);
 	else if (input == 'e') rotate_right(field);
-	else if (input == 'w') { } // hard drop;
-	else if (input == 'f') { } // hold;
+	else if (input == 'w') hard_drop(field);
+	else if (input == 'f') {} // hold;
 	if (is_hit_wall(field) == true)
 	{
 		field->target = last_target;
@@ -81,3 +82,16 @@ void	move(t_field *field, int input)
 	}
 	draw_screen(field);
 }
+
+static void	hard_drop(t_field *field)
+{
+	t_target_mino	last_target;
+	while (is_hit_wall(field) == false)
+	{
+		last_target = field->target;
+		field->target.y++;
+	}
+	field->target = last_target;
+	return ;
+}
+
